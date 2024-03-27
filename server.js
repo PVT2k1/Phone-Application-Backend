@@ -24,13 +24,9 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/callogHistory', (req, res) => {
-    Callog.find({}, function (err, callogs) {
-        if (!err)
-            res.status(200).json({ callogs });
-        else
-        res.status(400).json({ error: err });
-    });
+app.get('/callogHistory', async (req, res) =>  {
+    const callogs = await Callog.find({});
+    res.status(200).json(callogs);
 });
 
 app.post('/callogHistory', (req, res) => {

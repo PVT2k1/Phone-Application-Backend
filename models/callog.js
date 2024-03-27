@@ -7,5 +7,5 @@ const CallogSchema = new mongoose.Schema(
         duration: { type: Number }
     }
 );
-  
+
 module.exports = mongoose.model('Callog', CallogSchema);
